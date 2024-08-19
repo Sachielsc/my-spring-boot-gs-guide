@@ -1,9 +1,11 @@
+package com.example.springboot;
+
 import io.restassured.RestAssured;
 import io.restassured.http.ContentType;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.boot.web.server.LocalServerPort;
+import org.springframework.boot.test.web.server.LocalServerPort;
 
 import static io.restassured.RestAssured.*;
 import static org.hamcrest.Matchers.*;
@@ -22,11 +24,11 @@ public class HelloControllerRestAssuredIntegrationTest {
     @Test
     public void testGetEndpoint() {
         given()
-            .contentType(ContentType.JSON)
-        .when()
-            .get("/")
-        .then()
-            .statusCode(200)
-            .body(equalTo("Greetings from Spring Boot!"));
+                .contentType(ContentType.JSON)
+                .when()
+                .get("/")
+                .then()
+                .statusCode(200)
+                .body(equalTo("Greetings from Spring Boot!"));
     }
 }
