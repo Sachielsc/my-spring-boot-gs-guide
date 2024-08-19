@@ -1,0 +1,31 @@
+name: CI Test
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Set up Maven Wrapper
+        run: chmod +x mvnw  # Set execute permissions on mvnw
+        working-directory: ./initial  # Specify the working directory
+
+      - name: Set up JDK 17
+        uses: actions/setup-java@v2
+        with:
+          distribution: 'adopt'  # You can also use 'temurin' as an alternative distribution
+          java-version: '17'
+
+      - name: Run Tests with Maven
+        run: ./mvnw test  # Run mvn test from the initial folder
+        working-directory: ./initial  # Specify the working directory
