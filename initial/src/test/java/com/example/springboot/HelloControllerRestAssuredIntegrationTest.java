@@ -9,7 +9,7 @@ import static io.restassured.RestAssured.*;
 import static org.hamcrest.Matchers.*;
 
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
-public class MyControllerTest {
+public class HelloControllerRestAssuredIntegrationTest {
 
     @LocalServerPort
     private int port;
